@@ -25,7 +25,8 @@ public class TaskService {
 
     public Task updateTask(Long id, Task taskDetails) {
         Task task = taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
-        task.setTaskName(taskDetails.getTaskName());
+        task.setTitle(taskDetails.getTitle());
+        task.setDone(taskDetails.isDone());
         return taskRepository.save(task);
     }
 
