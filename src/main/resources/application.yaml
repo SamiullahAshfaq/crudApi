@@ -1,3 +1,15 @@
 spring:
   application:
     name: curdApi
+  datasource:
+    url: jdbc:sqlite:tasks.db
+    driver-class-name: org.sqlite.JDBC
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema.sql
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
